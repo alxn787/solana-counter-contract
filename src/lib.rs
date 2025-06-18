@@ -1,5 +1,5 @@
 use solana_program::{
-    account_info::{ next_account_info, AccountInfo},entrypoint, entrypoint::{self, ProgramResult}, pubkey::Pubkey
+    account_info::{ next_account_info, AccountInfo},entrypoint, entrypoint::{ ProgramResult}, pubkey::Pubkey
 };
 use borsh::{ BorshSerialize, BorshDeserialize};
 
@@ -17,7 +17,7 @@ struct Counter{
 entrypoint!(counter_contract);
 
 pub fn counter_contract(
-    program_id: &Pubkey,
+    _program_id: &Pubkey,
     accounts: &[AccountInfo],
     instruction_data: &[u8]
 )-> ProgramResult{
