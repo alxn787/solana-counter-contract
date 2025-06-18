@@ -8,7 +8,7 @@ class CounterAccount {
     }
 }
 
-const schema : borsh.Schema = {
+export const schema : borsh.Schema = {
     struct : {
         count: 'u32'
     }
