@@ -35,4 +35,5 @@ console.log(dataacc.publicKey.toBase58());
 const dataAccountInfo = await connection.getAccountInfo(dataacc.publicKey);
 const count = borsh.deserialize(schema,dataAccountInfo?.data);
 console.log(count?.count);
+expect(count.count).toBe(0);
 })
