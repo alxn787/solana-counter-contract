@@ -6,7 +6,7 @@ import * as borsh from 'borsh';
 let adminacc = Keypair.generate()
 let dataacc = Keypair.generate()
 
-const programId = new PublicKey('9zKDPAfgsJVh3rTjs4uD4tJv7iWxzdpFEmwwyyXCT9Lo')
+const programId = new PublicKey('GkZiJ6FZxpL1toaJre7Th3VtBD4BAya37LtjvdDGA93b')
 
 const connection = new Connection('http://localhost:8899');
 
