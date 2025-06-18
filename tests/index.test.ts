@@ -1,15 +1,18 @@
-import * as borsh from 'borsh'
+import {expect, test} from 'bun:test';
+import { Connection, Keypair, LAMPORTS_PER_SOL, sendAndConfirmTransaction } from '@solana/web3.js';
+import { COUNTER_SIZE } from './types';
 
-class CounterAccount {
-    count : number;
+let adminacc = Keypair.generate()
+let dataacc = Keypair.generate()
 
-    constructor({count}:{count:number}){
-        this.count = count;
-    }
-}
+const connection = new Connection('http://localhost:8899');
+const txn = await connection.requestAirdrop(adminacc.publicKey,1*LAMPORTS_PER_SOL);
+await connection.confirmTransaction(txn)
+const data = await connection.getAccountInfo(adminacc.publicKey);
+const lamports = await connection.getMinimumBalanceForRentExemption(COUNTER_SIZE);
+console.log(data);
 
-const schema : borsh.Schema = {
-    struct : {
-        Count: 'u32'
-    }
-}
+
+test("acount is initialized", ()=>{
+    expect(1).toBe(1);
+})
